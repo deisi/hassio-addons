@@ -1,0 +1,18 @@
+{
+  "name": "snapserver",
+  "version": "0.12",
+  "slug": "snapserver",
+  "description": "Snapcast server addon",
+  "startup": "before",
+  "url": "https://github.com/badaix/snapcast",
+  "boot": "auto",
+  "privileged": ["NET_ADMIN"],
+  "host_network": "true",
+  "options": {
+    "args": "--stream pipe:///tmpfs/snapfifo?name=default"
+  },
+  "tmpfs": "size=1m,uid=1234,rw",
+  "schema": {
+    "args": "str"
+  }
+}
