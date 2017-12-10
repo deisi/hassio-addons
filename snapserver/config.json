@@ -7,9 +7,11 @@
   "url": "https://github.com/badaix/snapcast",
   "boot": "auto",
   "privileged": ["NET_ADMIN"],
+  "arch": ["armhf", "amd64"],
   "host_network": "true",
+  "map": ["share:rw"],
   "options": {
-    "args": "--stream pipe:///tmpfs/snapfifo?name=default"
+    "args": "--stream pipe:///share/snapfifo?name=default"
   },
   "tmpfs": "size=1m,uid=1234,rw",
   "schema": {
