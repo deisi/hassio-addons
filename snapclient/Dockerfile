@@ -1,23 +1,15 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ubuntu:latest
 
 ENV LANG C.UTF-8
 
-# Install requirements for add-on
-RUN apk add --no-cache \
-    jq alsa-lib avahi avahi-tools libvorbis flac alsa-utils\
-    && apk add --no-cache --virtual .build-dependencies build-base alsa-lib-dev linux-headers avahi-dev libvorbis-dev flac-dev git\
-    && mkdir -p /usr/src \
-    && cd /usr/src \
-    && git clone https://github.com/badaix/snapcast.git \
-    && cd snapcast \
-    && git checkout fcf5997e342003513de89cc3f3c10f2abe1badc7 \
-    && cd externals \
-    && git submodule update --init --recursive \
-    && cd .. \
-    && make client\
-    && apk del .build-dependencies
+ARG SNAPCASTVERSION="0.12.0"
+ARG BUILD_ARCH
 
+RUN apt-get update \
+  && apt-get install wget jq -y \
+  && wget "https://github.com/badaix/snapcast/releases/download/v${SNAPCASTVERSION}/snapclient_${SNAPCASTVERSION}_${BUILD_ARCH}.deb" \
+  && dpkg -i --force-all "snapclient_${SNAPCASTVERSION}_${BUILD_ARCH}.deb" \
+  && apt-get -f install -y
 RUN mkdir -p /root/.config/snapcast/
 
 # Avahi with disabled dbus

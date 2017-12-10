@@ -7,8 +7,8 @@ ARG BUILD_ARCH
 
 RUN apt-get update \
   && apt-get install wget jq -y \
-  && wget 'https://github.com/badaix/snapcast/releases/download/v0.12.0/snapserver_0.12.0_amd64.deb' \
-  && dpkg -i --force-all 'snapserver_0.12.0_amd64.deb' \
+  && wget "https://github.com/badaix/snapcast/releases/download/v${SNAPCASTVERSION}/snapserver_${SNAPCASTVERSION}_${BUILD_ARCH}.deb" \
+  && dpkg -i --force-all "snapserver_${SNAPCASTVERSION}_${BUILD_ARCH}.deb" \
   && apt-get -f install -y
 
 RUN mkdir -p /root/.config/snapcast/

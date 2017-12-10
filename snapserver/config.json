@@ -13,7 +13,6 @@
   "options": {
     "args": "--stream pipe:///share/snapfifo?name=default"
   },
-  "tmpfs": "size=1m,uid=1234,rw",
   "schema": {
     "args": "str"
   }
