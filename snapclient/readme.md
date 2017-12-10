@@ -18,7 +18,7 @@ You can add arbitrary arguments to snapclient using the `args` keyword:
 ``` json
 
 {
-  "host": "name_of_snapcast_server"
+  "host": "name_of_snapcast_server",
   "args": "string of arguments for snapclient"
 }
 ```

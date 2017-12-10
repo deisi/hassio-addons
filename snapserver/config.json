@@ -4,7 +4,7 @@
   "slug": "snapserver",
   "description": "Snapcast server addon",
   "startup": "before",
-  "url": "https://github.com/badaix/snapcast",
+  "url": "https://github.com/deisi/hassio-addons/tree/master/snapclient#about",
   "boot": "auto",
   "privileged": ["NET_ADMIN"],
   "arch": ["armhf", "amd64"],

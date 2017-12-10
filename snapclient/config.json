@@ -4,10 +4,11 @@
   "slug": "snapclient",
   "description": "Snapcast client addon",
   "startup": "before",
-  "url": "https://github.com/badaix/snapcast",
+  "url": "https://github.com/deisi/hassio-addons/tree/master/snapclient#about",
   "boot": "auto",
   "audio": "true",
   "privileged": ["NET_ADMIN"],
+  "arch": ["armhf", "amd64"],
   "devices": ["/dev/snd:/dev/snd:rwm"],
   "host_network": "true",
   "options": {
